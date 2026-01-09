@@ -8,9 +8,10 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"math/big"
+
 	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto/secp256k1"
-	"math/big"
 )
 
 var (
@@ -35,7 +36,8 @@ func (k *Secp256k1Key) Sign(data []byte) ([]byte, error) {
 		}
 	}(seckey)
 
-	return secp256k1.Sign(data, seckey)
+	panic("not support")
+	// return secp256k1.Sign(data, seckey
 }
 
 func (k *Secp256k1Key) PubKey() []byte {
@@ -43,8 +45,8 @@ func (k *Secp256k1Key) PubKey() []byte {
 	if pub == nil || pub.X == nil || pub.Y == nil {
 		return nil
 	}
-
-	return secp256k1.CompressPubkey(pub.X, pub.Y)
+	panic("not support")
+	// return secp256k1.CompressPubkey(pub.X, pub.Y)
 }
 
 func (k *Secp256k1Key) PubKeyUncompressed() []byte {
